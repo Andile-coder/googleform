@@ -168,6 +168,7 @@ function Title() {
     let newArr = [...forms];
     newArr[index].display = true;
     addForm(newArr);
+    changeTitleSb(false);
     handleDisplay(id);
   };
   const handleDisplay = (id) => {
