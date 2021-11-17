@@ -1,0 +1,41 @@
+.form_header {
+  background-color: #fff;
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &_left {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    input {
+      border: none;
+      outline: none;
+      font-size: 18px;
+      font-weight: 400px;
+      margin-left: 15px;
+      line-height: 24px;
+      font-family: "Times New Roman", Times, serif;
+      width: 120px;
+      &:focus {
+        border-bottom: 1px solid black;
+      }
+    }
+    .form_header_icon {
+      margin-right: 10px;
+    }
+    span {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+  &_icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  &_right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

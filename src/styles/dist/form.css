@@ -1,0 +1,202 @@
+.form_container {
+  margin-top: 10px;
+  background-color: white;
+  border-left: 8px solid #673ab7;
+  padding: 30px 25px;
+  border-radius: 8px;
+}
+
+.form_container_content-box-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.form_container_content-box-1 .box-1-question .form_textfield {
+  outline: none;
+  border: none;
+  height: 35px;
+}
+
+.form_container_content-box-2 {
+  padding-top: 10px;
+}
+
+.form_container_content-box-2 .icon {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 5%;
+}
+
+.form_container_content-box-2 .multiple_choice {
+  width: 100%;
+}
+
+.form_container_content-box-2 .multiple_choice input {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  height: 20px;
+}
+
+.form_container_content-box-2 .multiple_choice input:focus {
+  border-bottom: 1px solid #2020a1;
+}
+
+.form_container_content-box-2 .multiple_choice_option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.form_container_content-box-2 .multiple_choice_addOption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form_container_content-box-2 .multiple_choice_addOption button {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  background-color: white;
+}
+
+.form_container_content-box-2 .paragraph_input {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.form_container_content-box-2 .paragraph_input input,
+.form_container_content-box-2 .paragraph_input .summary_input_long {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  width: 90%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  height: 30px;
+}
+
+.form_container_content-box-2 .short_answer_input {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.form_container_content-box-2 .short_answer_input input,
+.form_container_content-box-2 .short_answer_input .summary_input_short {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  width: 90%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  height: 30px;
+}
+
+.form_container_content-box-2 .checkbox_choice {
+  width: 100%;
+}
+
+.form_container_content-box-2 .checkbox_choice input {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  height: 20px;
+}
+
+.form_container_content-box-2 .checkbox_choice input:focus {
+  border-bottom: 1px solid #2020a1;
+}
+
+.form_container_content-box-2 .checkbox_choice_option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.form_container_content-box-2 .checkbox_choice_addOption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form_container_content-box-2 .checkbox_choice_addOption button {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #f4f4f9;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 40px;
+  background-color: white;
+}
+
+.form_container_content-box-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25px;
+}
+
+.form_container_content-box-3-footer {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=form.css.map */

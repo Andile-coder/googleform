@@ -1,0 +1,19 @@
+.formSide_container {
+  height: 240px;
+  width: 50px;
+  border-radius: 5px;
+  margin: 10px 0 0 5px;
+  background-color: white;
+  &_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+  .formSide_icon {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
