@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Accordion } from "@mui/material";
 import { Select } from "@mui/material";
-import { SubjectIcon } from "@mui/icons-material/Subject";
+import SubjectIcon from "@mui/icons-material/Subject";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import Radio from "@mui/icons-material/RadioButtonChecked";
 import ShortTextIcon from "@mui/icons-material/ShortText";
@@ -20,7 +20,11 @@ import Form from "./Form";
 import { v4 as uuidv4 } from "uuid";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import ImageIcon from "@mui/icons-material/Image";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import ViewStreamIcon from "@mui/icons-material/ViewStream";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 function Title() {
   const [forms, addForm] = useState([]);
   // handle form header
@@ -36,6 +40,7 @@ function Title() {
     };
     newArr.splice(index, 0, duplicate);
     addForm(newArr);
+    changeTitleSb(false);
   };
   const handleQuestionType = (id, value) => {
     let index = forms.indexOf(forms.find((elem) => elem.id === id));
@@ -130,11 +135,12 @@ function Title() {
         id: id,
         questionType: "Multiple choice",
         questionText: "Question " + (arr.length + 1),
-        options: [{ option: "option", id: id }],
+        options: [{ option: "Option", id: id }],
         display: true,
       },
     ]);
     handleDisplay(id);
+    changeTitleSb(false);
   };
   const handleFormDel = (id) => {
     let newArr = [...forms];
@@ -147,7 +153,16 @@ function Title() {
     addForm(newArr);
   };
   //display
+  const [titleSb, changeTitleSb] = useState(true);
 
+  const handleTitle = () => {
+    if (!titleSb) {
+      changeTitleSb(true);
+    }
+    let newArr = [...forms];
+    newArr.map((form) => (form.display = false));
+    addForm(newArr);
+  };
   const handleSummary = (id) => {
     let index = forms.indexOf(forms.find((elem) => elem.id === id));
     let newArr = [...forms];
@@ -172,7 +187,7 @@ function Title() {
       <br></br>
       <div className="questions_container_section">
         <div className="questions_container_section_title">
-          <div className="section_title">
+          <div onClick={() => handleTitle()} className="section_title">
             <input
               className="section_title_name"
               type="text"
@@ -184,10 +199,26 @@ function Title() {
               placeholder="Form description"
             ></input>
           </div>
+          <div
+            style={{ display: titleSb ? "flex" : "none" }}
+            className="form_sidebar"
+          >
+            <AddCircleOutlineIcon
+              onClick={() => {
+                const id = uuidv4();
+                handleAddForm(id);
+              }}
+            />
+            <UploadFileIcon />
+            <CloseIcon />
+            <ImageIcon />
+            <OndemandVideoIcon />
+            <ViewStreamIcon />
+          </div>
         </div>
 
         {forms.map((elem, i) => (
-          <div>
+          <div style={{ position: "relative" }}>
             <div
               className="summary"
               onClick={() => handleSummary(elem.id)}
@@ -195,7 +226,7 @@ function Title() {
                 display: elem.display === true ? "none" : "block",
                 backgroundColor: "white",
                 borderRadius: "8px",
-                padding: "30px 25px",
+                padding: "15px 25px",
                 marginTop: "10px",
               }}
             >
@@ -203,30 +234,62 @@ function Title() {
               {elem.questionType === "Multiple choice" ? (
                 <div>
                   {elem.options.map((item) => (
-                    <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "15px",
+                      }}
+                    >
                       <RadioButtonUncheckedIcon />
-                      {item.option}
+                      <div style={{ marginLeft: "10px" }}>{item.option}</div>
                     </div>
                   ))}
                 </div>
               ) : elem.questionType === "Checkboxes" ? (
                 <div>
                   {elem.options.map((item) => (
-                    <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "15px",
+                      }}
+                    >
                       <CheckBoxOutlineBlankIcon />
-                      {item.option}
+                      <div style={{ marginLeft: "10px" }}>{item.option}</div>
                     </div>
                   ))}
                 </div>
               ) : elem.questionType === "Dropdown" ? (
                 <div>
                   {elem.options.map((item) => (
-                    <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "15px",
+                      }}
+                    >
                       <CheckBoxOutlineBlankIcon />
-                      {item.option}
+                      <div style={{ marginLeft: "10px" }}>{item.option}</div>
                     </div>
                   ))}
                 </div>
+              ) : elem.questionType === "paragraph" ? (
+                <div className="paragraph_input">
+                  <input
+                    className="summary_input_long"
+                    type="text"
+                    placeholder="Long answer text"
+                  />
+                </div>
+              ) : elem.questionType === "Short answer" ? (
+                <input
+                  className="summary_input_short"
+                  type="text"
+                  placeholder="short answer text"
+                />
               ) : (
                 ""
               )}
@@ -234,7 +297,7 @@ function Title() {
 
             <div
               style={{
-                display: elem.display === true ? "block" : "none",
+                display: elem.display === true ? "flex" : "none",
               }}
             >
               <Form
@@ -254,18 +317,22 @@ function Title() {
                 index={i}
                 handleFormDel={[handleFormDel]}
               />
+              <div className="form_sidebar">
+                <AddCircleOutlineIcon
+                  onClick={() => {
+                    const id = uuidv4();
+                    handleAddForm(id);
+                  }}
+                />
+                <UploadFileIcon />
+                <CloseIcon />
+                <ImageIcon />
+                <OndemandVideoIcon />
+                <ViewStreamIcon />
+              </div>
             </div>
           </div>
         ))}
-
-        <button
-          onClick={() => {
-            const id = uuidv4();
-            handleAddForm(id);
-          }}
-        >
-          ADD
-        </button>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@
   border-left: 8px solid rgb(103, 58, 183);
   padding: 30px 25px;
   border-radius: 8px;
+  width: 100%;
   &_content {
     &-box-1 {
       display: flex;
@@ -131,6 +132,8 @@
             font-weight: 400;
             line-height: 40px;
             background-color: white;
+            display: flex;
+            text-align: center;
           }
         }
       }

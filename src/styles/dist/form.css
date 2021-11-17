@@ -4,6 +4,7 @@
   border-left: 8px solid #673ab7;
   padding: 30px 25px;
   border-radius: 8px;
+  width: 100%;
 }
 
 .form_container_content-box-1 {
@@ -173,6 +174,10 @@
   font-weight: 400;
   line-height: 40px;
   background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
 }
 
 .form_container_content-box-3 {

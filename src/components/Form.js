@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Select,
-} from "@mui/material";
+import { Select } from "@mui/material";
 import { TextField } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
@@ -82,53 +77,6 @@ function Form(props) {
 
   return (
     <div className="form_container">
-      {/* <div>
-        <h3>{props.form.questionText}</h3>
-        <ul>
-          {props.form.options.map((elem, i) => (
-            <li style={{ display: "flex" }}>
-              {props.form.questionType === "Multiple choice" ? (
-                <div>
-                  <div>{elem.option}</div>
-                  <div className="icon">
-                    <RadioButtonUncheckedIcon />
-                  </div>
-                </div>
-              ) : props.form.questionType === "Checkboxes" ? (
-                <div>
-                  <div>{elem.option}</div>
-                  <div className="icon">
-                    <CheckBoxOutlineBlankIcon />
-                  </div>
-                </div>
-              ) : props.form.questionType === "Dropdown" ? (
-                <div>
-                  <div>{elem.option}</div>
-                  <div className="icon">
-                    <h3>{i + 1}</h3>
-                  </div>
-                </div>
-              ) : props.form.questionType === "paragraph" ? (
-                <div className="paragraph_input">
-                  <input
-                    className="summary_input_long"
-                    type="text"
-                    placeholder="Long answer text"
-                  />
-                </div>
-              ) : props.form.questionType === "Short answer" ? (
-                <input
-                  className="summary_input_short"
-                  type="text"
-                  placeholder="short answer text"
-                />
-              ) : (
-                ""
-              )}
-            </li>
-          ))}
-        </ul>
-      </div> */}
       <div className="form_container_content">
         <div className="form_container_content-box-1">
           <div className="box-1-question">
@@ -164,26 +112,33 @@ function Form(props) {
             <div className="multiple_choice">
               {props.form.options.map((elem) => (
                 <div className="multiple_choice_option">
-                  <div className="icon">
-                    <RadioButtonUncheckedIcon />
-                  </div>
                   <div
                     style={{
-                      width: "90%",
                       display: "flex",
-                      alignItems: "end",
-                      lineHeight: "40px",
+                      alignItems: "center",
+                      width: "100%",
                     }}
                   >
-                    <input
-                      placeholder="option"
-                      key={elem.id}
-                      id={elem.id}
-                      type="text"
-                      value={elem.option}
-                      defaultValue={elem.option}
-                      onChange={handleMcChange}
-                    />
+                    <div className="icon">
+                      <RadioButtonUncheckedIcon />
+                    </div>
+                    <div
+                      style={{
+                        width: "90%",
+                        lineHeight: "40px",
+                        marginLeft: "15px",
+                      }}
+                    >
+                      <input
+                        placeholder="option"
+                        key={elem.id}
+                        id={elem.id}
+                        type="text"
+                        value={elem.option}
+                        defaultValue={elem.option}
+                        onChange={handleMcChange}
+                      />
+                    </div>
                   </div>
                   <div className="icon">
                     {props.form.options.length == 1 ? (
@@ -197,19 +152,40 @@ function Form(props) {
                 </div>
               ))}
               <div className="multiple_choice_addOption">
-                <button onClick={() => handleAddMCoption(uuidv4())}>
-                  Add option
-                </button>
-                <p>Or</p>
-                <button
+                <div>
+                  {" "}
+                  <button onClick={() => handleAddMCoption(uuidv4())}>
+                    Add option
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      color: "blue",
+                      cursor: "text",
+                    }}
+                  >
+                    {" "}
+                    or
+                  </button>
+                </div>
+                <div
                   style={{
-                    color: "blue",
-                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                  onClick={() => handleOptionOther(uuidv4())}
                 >
-                  add"Other"
-                </button>
+                  <button
+                    style={{
+                      color: "blue",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleOptionOther(uuidv4())}
+                  >
+                    add"Other"
+                  </button>
+                </div>
               </div>
             </div>
           ) : props.form.questionType === "Paragraph" ? (

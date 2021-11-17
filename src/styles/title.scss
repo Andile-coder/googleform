@@ -4,13 +4,17 @@
   background-color: #f4f4f9;
   &_section {
     margin: auto;
-    width: 50%;
+    width: 60%;
     &_title {
+      display: flex;
+      position: relative;
       .section_title {
+        width: 100%;
         background-color: white;
         border-top: 8px solid rgb(103, 58, 183);
         padding: 30px 25px;
         border-radius: 8px;
+
         &_name {
           font-size: 32px;
           font-weight: 400px;
@@ -41,4 +45,17 @@
   padding: 30px 25px;
   border-radius: 8px;
   display: none;
+}
+.form_sidebar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-flow: column wrap;
+  width: 50px;
+  height: 200px;
+  border-radius: 8px;
+  background-color: white;
+  margin-left: 10px;
+  left: 100%;
 }
