@@ -17,8 +17,9 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ViewStreamIcon from "@mui/icons-material/ViewStream";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import TaskIcon from "@mui/icons-material/Task";
-import { InputLabel } from "@mui/material";
-function Title() {
+import Theme from "./Theme";
+import { IconButton } from "@mui/material";
+function Title(props) {
   const [forms, addForm] = useState([]);
   // handle form header
   const handleDuplicate = (newId, duplicantId, i) => {
@@ -240,12 +241,14 @@ function Title() {
             style={{ display: titleSb ? "flex" : "none" }}
             className="form_sidebar"
           >
-            <AddCircleOutlineIcon
-              onClick={() => {
-                const id = uuidv4();
-                addFormIndexZero(id);
-              }}
-            />
+            <IconButton>
+              <AddCircleOutlineIcon
+                onClick={() => {
+                  const id = uuidv4();
+                  addFormIndexZero(id);
+                }}
+              />
+            </IconButton>
 
             <div className="formControl">
               <label for="json">
@@ -261,10 +264,18 @@ function Title() {
                 onClick={(e) => (e.target.value = null)}
               />
             </div>
-            <TaskIcon />
-            <ImageIcon />
-            <OndemandVideoIcon />
-            <ViewStreamIcon />
+            <IconButton>
+              {" "}
+              <TaskIcon />
+            </IconButton>
+            <IconButton>
+              {" "}
+              <ImageIcon />
+            </IconButton>
+            <IconButton>
+              {" "}
+              <OndemandVideoIcon />
+            </IconButton>
           </div>
         </div>
 
@@ -292,7 +303,9 @@ function Title() {
                         marginBottom: "15px",
                       }}
                     >
-                      <RadioButtonUncheckedIcon />
+                      <IconButton>
+                        <RadioButtonUncheckedIcon />
+                      </IconButton>
                       <div style={{ marginLeft: "10px" }}>{item.option}</div>
                     </div>
                   ))}
@@ -371,12 +384,14 @@ function Title() {
                 handleFormDel={[handleFormDel]}
               />
               <div className="form_sidebar">
-                <AddCircleOutlineIcon
-                  onClick={() => {
-                    const id = uuidv4();
-                    handleAddForm(id, i);
-                  }}
-                />
+                <IconButton>
+                  <AddCircleOutlineIcon
+                    onClick={() => {
+                      const id = uuidv4();
+                      handleAddForm(id, i);
+                    }}
+                  />
+                </IconButton>
                 <div className="formControl">
                   <label for="json">
                     <UploadFileIcon />
@@ -390,14 +405,23 @@ function Title() {
                     onClick={(e) => (e.target.value = null)}
                   />
                 </div>
-                <TaskIcon />
-                <ImageIcon />
-                <OndemandVideoIcon />
-                <ViewStreamIcon />
+                <IconButton>
+                  <TaskIcon />
+                </IconButton>
+                <IconButton>
+                  <ImageIcon />
+                </IconButton>
+                <IconButton>
+                  {" "}
+                  <OndemandVideoIcon />
+                </IconButton>
               </div>
             </div>
           </div>
         ))}
+      </div>
+      <div style={{ display: props.popup == true ? "flex" : "none" }}>
+        <Theme handlePopup={props.handlePopup} />
       </div>
     </div>
   );

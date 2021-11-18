@@ -2,11 +2,12 @@
   height: 100%;
   padding-bottom: 30px;
   background-color: #f4f4f9;
+  position: relative;
 }
 
 .questions_container_section {
   margin: auto;
-  width: 60%;
+  width: 55%;
 }
 
 .questions_container_section_title {

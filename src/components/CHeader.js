@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AddtoDriveIcon from "@mui/icons-material/AddToDrive";
 import InsertDriveFile from "@mui/icons-material/InsertDriveFile";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
@@ -11,7 +11,7 @@ import { Button, MenuItem, Select } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
-function CHeader() {
+function CHeader(props) {
   return (
     <div className="form_header">
       <div className="form_header_left">
@@ -26,10 +26,10 @@ function CHeader() {
       </div>
       <div className="form_header_right">
         <IconButton>
-          <PaletteIcon className="form_header_icon" />
-          <Select>
-            <MenuItem></MenuItem>
-          </Select>
+          <PaletteIcon
+            className="form_header_icon"
+            onClick={() => props.handlePopup()}
+          />
         </IconButton>
         <IconButton>
           <VisibilityIcon className="form_header_icon" />

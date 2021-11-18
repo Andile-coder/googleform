@@ -1,0 +1,40 @@
+.theme_container {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 80%;
+  width: 20%;
+  background-color: white;
+  .theme_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    div:first-child {
+      padding-right: 10px;
+    }
+    div:last-child {
+      display: flex;
+      justify-content: right;
+      flex: 2;
+    }
+  }
+  .theme_color {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 10px;
+    &_colors {
+      display: flex;
+    }
+  }
+  .theme_background_color {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+}
