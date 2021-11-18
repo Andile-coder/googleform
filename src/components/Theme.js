@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PaletteIcon from "@mui/icons-material/Palette";
 import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, IconButton, Input, InputLabel } from "@mui/material";
-import ColorPicker from "material-ui-color-picker";
 
 function Theme(props) {
   const [theme, addTheme] = useState([1]);
