@@ -7,7 +7,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Button } from "@mui/material";
+import { Button, MenuItem, Select } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
@@ -27,6 +27,9 @@ function CHeader() {
       <div className="form_header_right">
         <IconButton>
           <PaletteIcon className="form_header_icon" />
+          <Select>
+            <MenuItem></MenuItem>
+          </Select>
         </IconButton>
         <IconButton>
           <VisibilityIcon className="form_header_icon" />

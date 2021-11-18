@@ -174,10 +174,6 @@
   font-weight: 400;
   line-height: 40px;
   background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
 }
 
 .form_container_content-box-3 {

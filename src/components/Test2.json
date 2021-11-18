@@ -1,0 +1,9 @@
+[
+  {
+    "id": "",
+    "questionType": "multiple_choice",
+    "questionText": "Question",
+    "options": [{ "option": "Option", "id": "" }],
+    "display": true
+  }
+]

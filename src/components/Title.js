@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  AccordionDetails,
-  AccordionSummary,
-  AccordionActionsProps,
-  Typography,
-  MenuItem,
-  div,
-  FormControlLabel,
-} from "@mui/material";
-import { Accordion } from "@mui/material";
+import { Accordion, FormControl, FormHelperText, Input } from "@mui/material";
 import { Select } from "@mui/material";
 import SubjectIcon from "@mui/icons-material/Subject";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
@@ -25,6 +16,8 @@ import ImageIcon from "@mui/icons-material/Image";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ViewStreamIcon from "@mui/icons-material/ViewStream";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import TaskIcon from "@mui/icons-material/Task";
+import { InputLabel } from "@mui/material";
 function Title() {
   const [forms, addForm] = useState([]);
   // handle form header
@@ -68,7 +61,6 @@ function Title() {
     let filter = newArr[index].options.filter((item) => item.id !== optionId);
     newArr[index].options = filter;
     //display last element
-
     addForm(newArr);
   };
   const multipleChoiceUpdate = (id, value, optionId) => {
@@ -128,17 +120,59 @@ function Title() {
     addForm(newArr);
   };
 
-  const handleAddForm = (id) => {
-    addForm((arr, i) => [
-      ...arr,
-      {
-        id: id,
-        questionType: "Multiple choice",
-        questionText: "Question " + (arr.length + 1),
-        options: [{ option: "Option", id: id }],
-        display: true,
-      },
-    ]);
+  const [file, setFile] = useState([]);
+  const inputFile = (e) => {
+    e.preventDefault();
+    const fileReader = new FileReader();
+    let json;
+    fileReader.readAsText(e.target.files[0], "UTF-8");
+    fileReader.onloadend = (e) => {
+      const arr = e.target.result;
+      json = JSON.parse(JSON.parse(JSON.stringify(arr)));
+      for (let i = 0; i < json.length; i++) {}
+      json.forEach((form) => {
+        form.id = uuidv4();
+        form.options.forEach((option) => (option.id = uuidv4()));
+      });
+      handleFile(json);
+    };
+  };
+  const handleFile = (json) => {
+    console.log(file.length);
+    json.forEach((form) => {
+      addForm((arr) => [...arr, form]);
+      handleDisplay(form.id);
+      changeTitleSb(false);
+    });
+
+    console.log(forms);
+  };
+  const addFormIndexZero = (id) => {
+    // adding form from title bar
+    let newArr = [...forms];
+    let newForm = {
+      id: id,
+      questionType: "multiple_choice",
+      questionText: "Question ",
+      options: [{ option: "Option", id: id }],
+      display: true,
+    };
+    newArr.splice(0, 0, newForm);
+    addForm(newArr);
+    handleDisplay(id);
+    changeTitleSb(false);
+  };
+  const handleAddForm = (id, index) => {
+    let newArr = [...forms];
+    let newForm = {
+      id: id,
+      questionType: "multiple_choice",
+      questionText: "Question ",
+      options: [{ option: "Option", id: id }],
+      display: true,
+    };
+    newArr.splice(index + 1, 0, newForm);
+    addForm(newArr);
     handleDisplay(id);
     changeTitleSb(false);
   };
@@ -149,6 +183,8 @@ function Title() {
       handleSummary(newArr[0].id);
     } else if (newArr.length > 1) {
       handleSummary(newArr[newArr.length - 1].id);
+    } else if (newArr.length == 0) {
+      handleTitle();
     }
     addForm(newArr);
   };
@@ -192,7 +228,7 @@ function Title() {
             <input
               className="section_title_name"
               type="text"
-              placeholder="Untitled document"
+              placeholder="Form title"
             ></input>
             <input
               className="section_title_desc"
@@ -207,11 +243,25 @@ function Title() {
             <AddCircleOutlineIcon
               onClick={() => {
                 const id = uuidv4();
-                handleAddForm(id);
+                addFormIndexZero(id);
               }}
             />
-            <UploadFileIcon />
-            <CloseIcon />
+
+            <div className="formControl">
+              <label for="json">
+                <UploadFileIcon />
+              </label>
+              <input
+                id="json"
+                type="file"
+                style={{ display: "none", visibility: "none" }}
+                onChange={inputFile}
+                accept=".json"
+                multiple
+                onClick={(e) => (e.target.value = null)}
+              />
+            </div>
+            <TaskIcon />
             <ImageIcon />
             <OndemandVideoIcon />
             <ViewStreamIcon />
@@ -232,7 +282,7 @@ function Title() {
               }}
             >
               <h3>{elem.questionText}</h3>
-              {elem.questionType === "Multiple choice" ? (
+              {elem.questionType === "multiple_choice" ? (
                 <div>
                   {elem.options.map((item) => (
                     <div
@@ -247,7 +297,7 @@ function Title() {
                     </div>
                   ))}
                 </div>
-              ) : elem.questionType === "Checkboxes" ? (
+              ) : elem.questionType === "checkbox" ? (
                 <div>
                   {elem.options.map((item) => (
                     <div
@@ -262,9 +312,9 @@ function Title() {
                     </div>
                   ))}
                 </div>
-              ) : elem.questionType === "Dropdown" ? (
+              ) : elem.questionType === "dropdown" ? (
                 <div>
-                  {elem.options.map((item) => (
+                  {elem.options.map((item, j) => (
                     <div
                       style={{
                         display: "flex",
@@ -272,7 +322,7 @@ function Title() {
                         marginBottom: "15px",
                       }}
                     >
-                      <CheckBoxOutlineBlankIcon />
+                      <div>{j + 1}</div>
                       <div style={{ marginLeft: "10px" }}>{item.option}</div>
                     </div>
                   ))}
@@ -285,12 +335,14 @@ function Title() {
                     placeholder="Long answer text"
                   />
                 </div>
-              ) : elem.questionType === "Short answer" ? (
-                <input
-                  className="summary_input_short"
-                  type="text"
-                  placeholder="short answer text"
-                />
+              ) : elem.questionType === "short_answer" ? (
+                <div>
+                  <input
+                    className="summary_input_short"
+                    type="text"
+                    placeholder="short answer text"
+                  />
+                </div>
               ) : (
                 ""
               )}
@@ -322,11 +374,23 @@ function Title() {
                 <AddCircleOutlineIcon
                   onClick={() => {
                     const id = uuidv4();
-                    handleAddForm(id);
+                    handleAddForm(id, i);
                   }}
                 />
-                <UploadFileIcon />
-                <CloseIcon />
+                <div className="formControl">
+                  <label for="json">
+                    <UploadFileIcon />
+                  </label>
+                  <input
+                    id="json"
+                    type="file"
+                    style={{ display: "none", visibility: "none" }}
+                    onChange={inputFile}
+                    multiple
+                    onClick={(e) => (e.target.value = null)}
+                  />
+                </div>
+                <TaskIcon />
                 <ImageIcon />
                 <OndemandVideoIcon />
                 <ViewStreamIcon />

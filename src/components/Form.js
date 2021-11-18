@@ -7,11 +7,12 @@ import { TextField } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import ShortTextIcon from "@mui/icons-material/ShortText";
+import SubjectIcon from "@mui/icons-material/Subject";
+import CloseIcon from "@mui/icons-material/Close";
 import { v4 as uuidv4 } from "uuid";
-import { FormatShapes } from "@mui/icons-material";
-export let multipleChoice;
-export let checkbox;
-export let dropdown;
 function Form(props) {
   // multiple choice
   const handleMcChange = (e) => {
@@ -73,7 +74,6 @@ function Form(props) {
   const handleFormDel = () => {
     props.handleFormDel[0](props.id);
   };
-  //
 
   return (
     <div className="form_container">
@@ -99,16 +99,28 @@ function Form(props) {
               value={props.form.questionType}
               defaultValue="Multiple choice"
             >
-              <MenuItem value="Short answer">Short answer</MenuItem>
-              <MenuItem value="Paragraph">Paragraph</MenuItem>
-              <MenuItem value="Multiple choice">Multiple choice</MenuItem>
-              <MenuItem value="Checkboxes">Checkboxes</MenuItem>
-              <MenuItem value="Dropdown">Dropdown</MenuItem>
+              <MenuItem value="short_answer">
+                <ShortTextIcon />
+                Short answer
+              </MenuItem>
+              <MenuItem value="paragraph">
+                <SubjectIcon />
+                Paragraph
+              </MenuItem>
+              <MenuItem value="multiple_choice">
+                <RadioButtonCheckedIcon />
+                Multiple choice
+              </MenuItem>
+              <MenuItem value="checkbox">
+                <CheckBoxIcon />
+                Checkboxes
+              </MenuItem>
+              <MenuItem value="dropdown">Dropdown</MenuItem>
             </Select>
           </div>
         </div>
         <div className="form_container_content-box-2">
-          {props.form.questionType === "Multiple choice" ? (
+          {props.form.questionType === "multiple_choice" ? (
             <div className="multiple_choice">
               {props.form.options.map((elem) => (
                 <div className="multiple_choice_option">
@@ -144,7 +156,7 @@ function Form(props) {
                     {props.form.options.length == 1 ? (
                       <div></div>
                     ) : (
-                      <DeleteIcon
+                      <CloseIcon
                         onClick={() => handleDeleteMCoption(elem.id)}
                       />
                     )}
@@ -188,42 +200,49 @@ function Form(props) {
                 </div>
               </div>
             </div>
-          ) : props.form.questionType === "Paragraph" ? (
+          ) : props.form.questionType === "paragraph" ? (
             <div className="paragraph">
               <div className="paragraph_input">
                 <input type="text" placeholder="Long answer text" />
               </div>
             </div>
-          ) : props.form.questionType === "Checkboxes" ? (
+          ) : props.form.questionType === "checkbox" ? (
             <div className="checkbox_choice">
               {props.form.options.map((elem) => (
-                <div className="checkbox_choice_option">
-                  <div className="icon">
-                    <CheckBoxOutlineBlankIcon />
-                  </div>
+                <div className="checkbox_option">
                   <div
                     style={{
-                      width: "90%",
                       display: "flex",
-                      alignItems: "end",
-                      lineHeight: "40px",
+                      alignItems: "center",
+                      width: "100%",
                     }}
                   >
-                    <input
-                      placeholder="option"
-                      key={elem.id}
-                      id={elem.id}
-                      type="text"
-                      value={elem.option}
-                      defaultValue="Option 1"
-                      onChange={handleCbChange}
-                    />
+                    <div className="icon">
+                      <CheckBoxOutlineBlankIcon />
+                    </div>
+                    <div
+                      style={{
+                        width: "90%",
+                        lineHeight: "40px",
+                        marginLeft: "15px",
+                      }}
+                    >
+                      <input
+                        placeholder="option"
+                        key={elem.id}
+                        id={elem.id}
+                        type="text"
+                        value={elem.option}
+                        defaultValue={elem.option}
+                        onChange={handleCbChange}
+                      />
+                    </div>
                   </div>
                   <div className="icon">
                     {props.form.options.length == 1 ? (
                       <div></div>
                     ) : (
-                      <DeleteIcon
+                      <CloseIcon
                         onClick={() => handleDeleteCboption(elem.id)}
                       />
                     )}
@@ -231,25 +250,53 @@ function Form(props) {
                 </div>
               ))}
               <div className="checkbox_choice_addOption">
-                <button onClick={() => handleAddCboption(uuidv4())}>
-                  Add option
-                </button>
-                <p>Or</p>
-                <button
+                <div>
+                  {" "}
+                  <button onClick={() => handleAddCboption(uuidv4())}>
+                    Add option
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      color: "blue",
+                      cursor: "text",
+                    }}
+                  >
+                    {" "}
+                    or
+                  </button>
+                </div>
+                <div
                   style={{
-                    color: "blue",
-                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                  onClick={() => handleCbOptionOther(uuidv4())}
                 >
-                  add"Other"
-                </button>
+                  <button
+                    style={{
+                      color: "blue",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => handleOptionOther(uuidv4())}
+                  >
+                    add"Other"
+                  </button>
+                </div>
               </div>
             </div>
-          ) : props.form.questionType === "Dropdown" ? (
+          ) : props.form.questionType === "dropdown" ? (
             <div className="checkbox_choice">
               {props.form.options.map((elem, i) => (
-                <div className="checkbox_choice_option">
+                <div
+                  className="checkbox_choice_option"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
                   <div className="icon">
                     <h3>{i + 1}</h3>
                   </div>
@@ -288,7 +335,7 @@ function Form(props) {
                 </button>
               </div>
             </div>
-          ) : props.form.questionType === "Short answer" ? (
+          ) : props.form.questionType === "short_answer" ? (
             <div className="short_answer">
               <div className="short_answer_input">
                 <input type="text" placeholder="Short answer text" />
