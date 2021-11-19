@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import PaletteIcon from "@mui/icons-material/Palette";
 import CloseIcon from "@mui/icons-material/Close";
 import { FormControl, IconButton, Input, InputLabel } from "@mui/material";
-
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { SketchPicker } from "react-color";
 function Theme(props) {
-  const [theme, addTheme] = useState([1]);
-
+  const [theme, addTheme] = useState([
+    1, 2, 3, 4, 5, 6, 7, 8, 91, 2, 3, 45, 6, 7, 7, 8, 5, 5, 5, 5, 5, 5, 5, 5, 5,
+    5, 5, 5476, 75, 67, 568, 654, 6476, 324, 4, 4, 4, 4, 4,
+  ]);
+  const handleColor = () => {};
   return (
     <div className="theme_container">
       <div className="theme_content">
         <div className="theme_header">
           <div>
             <IconButton>
-              <PaletteIcon onClick={() => props.handlePopup()} />
+              <PaletteIcon />
             </IconButton>
           </div>
           <div>
@@ -31,28 +35,22 @@ function Theme(props) {
           </div>
           <div className="theme_color_colors">
             {theme.map(() => (
-              <IconButton>
-                <PaletteIcon />
-              </IconButton>
+              <div style={{ display: "none" }}>
+                <IconButton>
+                  <PaletteIcon />
+                </IconButton>
+              </div>
             ))}
-            <div className="formControl">
-              <label for="color">+</label>
-              <input
-                id="color"
-                type="color"
-                value="transparent"
-                defaultValue="red"
-                style={{
-                  borderRadius: "50%",
-                  fontSize: "24px",
-                  width: "24px",
-                  height: "24px",
-                  backgroundColor: "black",
-                  display: "none",
-                  visibility: "none",
-                }}
-                placeholder="red"
-                onClick={(e) => (e.target.value = null)}
+            <div style={{ display: "none" }}>
+              <IconButton>
+                <AddCircleOutlineIcon />
+              </IconButton>
+            </div>
+            <div style={{ display: "block" }}>
+              <SketchPicker
+                onChange={handleColor}
+                size="small"
+                style={{ width: "50px", heigth: "50px" }}
               />
             </div>
           </div>

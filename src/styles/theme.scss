@@ -26,8 +26,11 @@
     justify-content: center;
     margin-left: 15px;
     margin-right: 10px;
+    width: 100%;
     &_colors {
       display: flex;
+      flex-flow: row wrap;
+      width: 95%;
     }
   }
   .theme_background_color {
