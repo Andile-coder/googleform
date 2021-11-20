@@ -61,7 +61,8 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  width: 95%;
+  margin-left: 20px;
+  width: 60%;
 }
 
 .theme_container .theme_background_color {
@@ -77,5 +78,22 @@
           justify-content: center;
   margin-left: 15px;
   margin-right: 10px;
+}
+
+.theme_container .picker_buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.theme_container .picker_buttons button {
+  cursor: pointer;
+  color: #4285f4;
+  border-radius: 0;
+  background-color: transparent;
+  border-color: transparent;
 }
 /*# sourceMappingURL=theme.css.map */

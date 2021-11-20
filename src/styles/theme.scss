@@ -30,7 +30,8 @@
     &_colors {
       display: flex;
       flex-flow: row wrap;
-      width: 95%;
+      margin-left: 20px;
+      width: 60%;
     }
   }
   .theme_background_color {
@@ -39,5 +40,18 @@
     justify-content: center;
     margin-left: 15px;
     margin-right: 10px;
+  }
+  .picker_buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    button {
+      cursor: pointer;
+      color: #4285f4;
+      border-radius: 0;
+      background-color: transparent;
+      border-color: transparent;
+    }
   }
 }
