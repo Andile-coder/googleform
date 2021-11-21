@@ -237,7 +237,7 @@ function Title(props) {
       type: "json/plain;charset-utf-8",
     });
     element.href = URL.createObjectURL(file);
-    element.download = "newFile.json";
+    element.download = "NewForm.json";
     document.body.appendChild(element);
     element.click();
   };
