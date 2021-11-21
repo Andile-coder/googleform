@@ -7,17 +7,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Button, MenuItem, Select } from "@mui/material";
+import { Button } from "@mui/material";
 import { AccountCircle } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
+import DescriptionIcon from "@mui/icons-material/Description";
 
 function CHeader(props) {
   return (
     <div className="form_header">
       <div className="form_header_left">
-        <InsertDriveFile
+        <DescriptionIcon
           className="form_header_icon"
-          style={{ height: "45px", width: "40px" }}
+          style={{ height: "55px", width: "50px", color: "#673ab7" }}
         />
         <input placeholder="Untitled Form"></input>
         <AddtoDriveIcon className="form_header_icon" />

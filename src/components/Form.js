@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { Select } from "@mui/material";
+import { IconButton, Select } from "@mui/material";
 import { TextField } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
@@ -88,19 +88,27 @@ function Form(props) {
               defaultValue="Multiple choice"
             >
               <MenuItem value="short_answer">
-                <ShortTextIcon />
+                <IconButton>
+                  <ShortTextIcon />
+                </IconButton>
                 Short answer
               </MenuItem>
               <MenuItem value="paragraph">
-                <SubjectIcon />
+                <IconButton>
+                  <SubjectIcon />
+                </IconButton>
                 Paragraph
               </MenuItem>
               <MenuItem value="multiple_choice">
-                <RadioButtonCheckedIcon />
+                <IconButton>
+                  <RadioButtonCheckedIcon />
+                </IconButton>
                 Multiple choice
               </MenuItem>
               <MenuItem value="checkbox">
-                <CheckBoxIcon />
+                <IconButton>
+                  <CheckBoxIcon />
+                </IconButton>
                 Checkboxes
               </MenuItem>
             </Select>
@@ -143,9 +151,11 @@ function Form(props) {
                     {props.form.options.length == 1 ? (
                       <div></div>
                     ) : (
-                      <CloseIcon
-                        onClick={() => handleDeleteMCoption(elem.id)}
-                      />
+                      <IconButton>
+                        <CloseIcon
+                          onClick={() => handleDeleteMCoption(elem.id)}
+                        />
+                      </IconButton>
                     )}
                   </div>
                 </div>
@@ -229,9 +239,11 @@ function Form(props) {
                     {props.form.options.length == 1 ? (
                       <div></div>
                     ) : (
-                      <CloseIcon
-                        onClick={() => handleDeleteCboption(elem.id)}
-                      />
+                      <IconButton>
+                        <CloseIcon
+                          onClick={() => handleDeleteCboption(elem.id)}
+                        />
+                      </IconButton>
                     )}
                   </div>
                 </div>
@@ -288,16 +300,23 @@ function Form(props) {
         <div className="form_container_content-box-3">
           <div className="form_container_content-box-3-footer">
             <div className="footer-icon">
-              <DeleteIcon onClick={() => handleFormDel()} />
+              <IconButton>
+                <DeleteIcon onClick={() => handleFormDel()} />
+              </IconButton>
             </div>
             <div className="footer-icon">
-              <ContentCopyIcon onClick={() => handleDuplicate()} />
+              <IconButton>
+                <ContentCopyIcon onClick={() => handleDuplicate()} />
+              </IconButton>
             </div>
             <div className="footer-icon">
               <hr />
             </div>
             <div className="footer-icon">
-              <MoreVertIcon />
+              <IconButton>
+                {" "}
+                <MoreVertIcon />
+              </IconButton>
             </div>
             <div className="footer-icon"></div>
           </div>
