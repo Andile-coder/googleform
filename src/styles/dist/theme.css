@@ -1,10 +1,14 @@
 .theme_container {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 80%;
   width: 20%;
   background-color: white;
+  -webkit-box-shadow: 2px 2px 2px 2px #747981;
+          box-shadow: 2px 2px 2px 2px #747981;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .theme_container .theme_header {
@@ -17,8 +21,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
+  -webkit-box-shadow: 0px 2px 2px #747981;
+          box-shadow: 0px 2px 2px #747981;
 }
 
 .theme_container .theme_header div:first-child {
@@ -48,9 +52,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 15px;
-  margin-right: 10px;
   width: 100%;
+  -webkit-box-shadow: 0px 1.5px 1.5px #747981;
+          box-shadow: 0px 1.5px 1.5px #747981;
 }
 
 .theme_container .theme_color_colors {
@@ -62,7 +66,11 @@
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   margin-left: 20px;
-  width: 60%;
+  width: 80%;
+}
+
+.theme_container .theme_color p {
+  margin-left: 25px;
 }
 
 .theme_container .theme_background_color {
@@ -76,8 +84,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 15px;
-  margin-right: 10px;
+  -webkit-box-shadow: 0px 1.5px 1.5px #747981;
+          box-shadow: 0px 1.5px 1.5px #747981;
+}
+
+.theme_container .theme_background_color p {
+  margin-left: 10px;
 }
 
 .theme_container .picker_buttons {

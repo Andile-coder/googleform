@@ -54,18 +54,6 @@ function Form(props) {
     props.checkbox[1](props.id, id);
   };
 
-  // Dropdown
-
-  const handleAddDdoption = (i) => {
-    props.dropdown[0](props.id, { option: "Option", id: i });
-  };
-  const handleDdChange = (e) => {
-    props.dropdown[2](props.id, e.target.value, e.target.id);
-  };
-  const handleDeleteDdoption = (id) => {
-    props.dropdown[1](props.id, id);
-  };
-
   // Duplicate
   const handleDuplicate = () => {
     let index = props.handleDuplicate[1];
@@ -115,7 +103,6 @@ function Form(props) {
                 <CheckBoxIcon />
                 Checkboxes
               </MenuItem>
-              <MenuItem value="dropdown">Dropdown</MenuItem>
             </Select>
           </div>
         </div>
@@ -209,7 +196,7 @@ function Form(props) {
           ) : props.form.questionType === "checkbox" ? (
             <div className="checkbox_choice">
               {props.form.options.map((elem) => (
-                <div className="checkbox_option">
+                <div className="checkbox_choice_option">
                   <div
                     style={{
                       display: "flex",
@@ -284,55 +271,6 @@ function Form(props) {
                     add"Other"
                   </button>
                 </div>
-              </div>
-            </div>
-          ) : props.form.questionType === "dropdown" ? (
-            <div className="checkbox_choice">
-              {props.form.options.map((elem, i) => (
-                <div
-                  className="checkbox_choice_option"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <div className="icon">
-                    <h3>{i + 1}</h3>
-                  </div>
-                  <div
-                    style={{
-                      width: "90%",
-                      display: "flex",
-                      alignItems: "end",
-                      lineHeight: "40px",
-                    }}
-                  >
-                    <input
-                      placeholder="option"
-                      key={elem.id}
-                      id={elem.id}
-                      type="text"
-                      value={elem.option}
-                      defaultValue="Option 1"
-                      onChange={handleDdChange}
-                    />
-                  </div>
-                  <div className="icon">
-                    {props.form.options.length == 1 ? (
-                      <div></div>
-                    ) : (
-                      <DeleteIcon
-                        onClick={() => handleDeleteDdoption(elem.id)}
-                      />
-                    )}
-                  </div>
-                </div>
-              ))}
-              <div className="checkbox_choice_addOption">
-                <button onClick={() => handleAddDdoption(uuidv4())}>
-                  Add option
-                </button>
               </div>
             </div>
           ) : props.form.questionType === "short_answer" ? (

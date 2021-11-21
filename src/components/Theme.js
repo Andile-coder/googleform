@@ -6,23 +6,20 @@ import { FormControl, IconButton, Input, InputLabel } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { SketchPicker, ChromePicker } from "react-color";
 import { v4 as uuidv4 } from "uuid";
+import { LightenDarkenColor } from "lighten-darken-color";
 
 function Theme(props) {
-  const [theme, addTheme] = useState([
-    { id: "", color: "#B55D79", light: "", medium: "", dark: "" },
-  ]);
-  const [color, setColor] = useState();
-  const handleTheme = (id, color) => {
-    addTheme((arr) => [...arr, { id: id, color: color }]);
+  const [themes, setThemes] = useState(false);
+  const handleThemes = () => {
+    setThemes(!themes);
   };
-
   return (
     <div className="theme_container">
       <div className="theme_content">
         <div className="theme_header">
           <div>
             <IconButton>
-              <PaletteIcon />
+              <PaletteIcon style={{ color: props.color.color }} />
             </IconButton>
           </div>
           <div>
@@ -40,34 +37,46 @@ function Theme(props) {
             <p>THEME COLOR</p>
           </div>
           <div className="theme_color_colors">
-            {theme.map((elem) => (
-              <div>
-                <IconButton>
-                  <CircleIcon style={{ color: elem.color }} />
+            <div style={{ display: themes ? "none" : "block" }}>
+              {props.theme.map((elem) => (
+                <IconButton size="small">
+                  <CircleIcon
+                    className="color_icons"
+                    style={{ color: elem.color, fontSize: "30px" }}
+                    onClick={() => {
+                      props.setColor({
+                        color: elem.color,
+                        light: elem.light,
+                        medium: elem.medium,
+                        dark: elem.dark,
+                      });
+                    }}
+                  />
                 </IconButton>
-              </div>
-            ))}
-            <div style={{ display: "none" }}>
+              ))}
               <IconButton>
-                <AddCircleOutlineIcon />
+                <AddCircleOutlineIcon onClick={() => handleThemes()} />
               </IconButton>
             </div>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "100%", display: themes ? "block" : "none" }}>
               <ChromePicker
                 disableAlpha={true}
                 styles={{
                   default: { picker: { width: "100%", boxShadow: "none" } },
                 }}
                 onChangeComplete={(color) => {
-                  setColor(color.hex);
+                  props.setColor({
+                    color: color.hex,
+                  });
                 }}
-                color={color}
+                color={props.color.color}
               />
               <div className="picker_buttons">
-                <button>CANCEL</button>
+                <button onClick={() => handleThemes()}>CANCEL</button>
                 <button
                   onClick={() => {
-                    handleTheme(uuidv4(), color);
+                    props.handleTheme(uuidv4(), props.color);
+                    handleThemes();
                   }}
                 >
                   ADD
@@ -81,18 +90,14 @@ function Theme(props) {
           <div>
             <p>BACKGROUND COLOR</p>
             <div>
-              <IconButton>
-                <CircleIcon />
-              </IconButton>
-              <IconButton>
-                <CircleIcon />
-              </IconButton>
-              <IconButton>
-                <CircleIcon />
-              </IconButton>
-              <IconButton>
-                <CircleIcon />
-              </IconButton>
+              {props.backgrounds.map((elem) => (
+                <IconButton>
+                  <CircleIcon
+                    style={{ color: elem.color }}
+                    onClick={() => props.handleBackground(elem.color)}
+                  />
+                </IconButton>
+              ))}
             </div>
           </div>
         </div>

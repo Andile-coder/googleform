@@ -11,17 +11,19 @@ import CHeader from "./components/CHeader";
 import Body from "./components/Body";
 import Pages from "./components/Pages";
 import Title from "./components/Title";
+import Download from "./components/Download";
 import React, { useState } from "react";
 function App() {
   const [popup, setPopup] = useState(false);
   const handlePopup = () => {
     setPopup(!popup);
-    console.log("popup", popup);
   };
   return (
     <div className="App">
       <CHeader handlePopup={handlePopup} />
+
       <Pages />
+
       <Title handlePopup={handlePopup} popup={popup} />
     </div>
   );

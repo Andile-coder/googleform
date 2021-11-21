@@ -1,16 +1,18 @@
 .theme_container {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 80%;
   width: 20%;
   background-color: white;
+  box-shadow: 2px 2px 2px 2px #747981;
+  transition: all 0.5s ease;
   .theme_header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
+
+    box-shadow: 0px 2px 2px #747981;
     div:first-child {
       padding-right: 10px;
     }
@@ -24,22 +26,28 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
-    margin-left: 15px;
-    margin-right: 10px;
+
     width: 100%;
+    box-shadow: 0px 1.5px 1.5px #747981;
     &_colors {
       display: flex;
       flex-flow: row wrap;
       margin-left: 20px;
-      width: 60%;
+      width: 80%;
+    }
+    p {
+      margin-left: 25px;
     }
   }
   .theme_background_color {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    margin-left: 15px;
-    margin-right: 10px;
+
+    box-shadow: 0px 1.5px 1.5px #747981;
+    p {
+      margin-left: 10px;
+    }
   }
   .picker_buttons {
     display: flex;
