@@ -21,25 +21,33 @@ function CHeader(props) {
           style={{ height: "55px", width: "50px", color: "#673ab7" }}
         />
         <input placeholder="Untitled Form"></input>
-        <AddtoDriveIcon className="form_header_icon" />
-        <StarBorderIcon className="form_header_icon" />
+        <IconButton>
+          {" "}
+          <AddtoDriveIcon id="drive" className="form_header_icon" />
+        </IconButton>
+        <IconButton>
+          {" "}
+          <StarBorderIcon id="star" className="form_header_icon" />
+        </IconButton>
+
         <span>All changes saved to drive</span>
       </div>
       <div className="form_header_right">
         <IconButton>
           <PaletteIcon
+            id="header_palette"
             className="form_header_icon"
             onClick={() => props.handlePopup()}
           />
         </IconButton>
         <IconButton>
-          <VisibilityIcon className="form_header_icon" />
+          <VisibilityIcon id="visibility" className="form_header_icon" />
         </IconButton>
         <IconButton>
           <UndoIcon className="form_header_icon" />
         </IconButton>
         <IconButton>
-          <RedoIcon className="form_header_icon" />
+          <RedoIcon id="redo" className="form_header_icon" />
         </IconButton>
         <Button variant="contained" color="primary">
           SEND
