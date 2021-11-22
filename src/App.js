@@ -19,7 +19,7 @@ function App() {
     setPopup(!popup);
   };
   return (
-    <div className="App">
+    <div className="App" style={{ overflowX: "hidden" }}>
       <CHeader handlePopup={handlePopup} />
       <Pages />
       <Title handlePopup={handlePopup} popup={popup} />
