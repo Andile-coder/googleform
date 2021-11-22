@@ -61,9 +61,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 @media only screen and (max-device-width: 560px) {
@@ -80,14 +77,22 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .form_header_left {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .form_header input {
-    width: 50px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 400px;
   }
   span,
   #star,
   #drive,
   #redo,
-  #visibility {
+  #visibility,
+  #account {
     display: none;
   }
   _icon {
@@ -95,8 +100,7 @@
     margin: 0;
   }
   .form_header_icon {
-    width: 100px;
-    height: 50px;
+    margin: 0;
   }
   _right {
     display: -webkit-box;

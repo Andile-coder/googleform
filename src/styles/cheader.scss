@@ -37,7 +37,6 @@
   &_right {
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
 }
 @media only screen and (max-device-width: 560px) {
@@ -47,15 +46,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &_left {
+      justify-content: space-between;
+    }
     input {
-      width: 50px;
+      width: 100%;
+      font-size: 13px;
+      font-weight: 400px;
     }
   }
   span,
   #star,
   #drive,
   #redo,
-  #visibility {
+  #visibility,
+  #account {
     display: none;
   }
   &_icon {
@@ -63,8 +69,7 @@
     margin: 0;
   }
   .form_header_icon {
-    width: 100px;
-    height: 50px;
+    margin: 0;
   }
   &_right {
     display: flex;

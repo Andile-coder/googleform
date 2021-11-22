@@ -56,7 +56,7 @@ function CHeader(props) {
           <MoreVertIcon className="form_header_icon" />
         </IconButton>
         <IconButton>
-          <AccountCircle className="form_header_icon" />
+          <AccountCircle id="account" className="form_header_icon" />
         </IconButton>
       </div>
     </div>
