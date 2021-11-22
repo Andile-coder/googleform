@@ -89,4 +89,27 @@ input {
   border-bottom: 1px solid #f4f4f9;
   height: 20px;
 }
+
+@media only screen and (max-device-width: 560px), only screen and (max-device-width: 560px) {
+  .questions_container {
+    width: 100vw;
+    margin-right: 0;
+    overflow: none;
+  }
+  .questions_container_section {
+    width: 95%;
+    margin: 0;
+  }
+  .questions_container_section_title {
+    position: static;
+    padding-left: 0;
+  }
+  .form_map {
+    position: relative;
+  }
+  .form_sidebar {
+    top: 10;
+    left: 10;
+  }
+}
 /*# sourceMappingURL=title.css.map */

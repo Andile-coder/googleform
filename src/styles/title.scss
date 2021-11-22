@@ -74,3 +74,20 @@ input {
   border-bottom: 1px solid #f4f4f9;
   height: 20px;
 }
+
+@media only screen and (max-device-width: 560px),
+  only screen and (max-device-width: 560px) {
+  .questions_container {
+    width: 100vw;
+    margin-right: 0;
+    overflow: none;
+    &_section {
+      width: 95%;
+      margin: 0;
+      &_title {
+        position: static;
+        padding-left: 0;
+      }
+    }
+  }
+}

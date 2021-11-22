@@ -10,6 +10,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
 }
 
 .form_header_left {
@@ -65,7 +66,10 @@
           justify-content: space-between;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 560px) {
+  .form_header {
+    width: 100%;
+  }
   span,
   #star,
   #drive,

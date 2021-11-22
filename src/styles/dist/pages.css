@@ -3,4 +3,10 @@
   font-weight: 600;
   height: 10px;
 }
+
+@media only screen and (max-device-width: 480px) {
+  .tabs {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=pages.css.map */

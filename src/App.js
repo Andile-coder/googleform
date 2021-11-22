@@ -21,9 +21,7 @@ function App() {
   return (
     <div className="App">
       <CHeader handlePopup={handlePopup} />
-
       <Pages />
-
       <Title handlePopup={handlePopup} popup={popup} />
     </div>
   );

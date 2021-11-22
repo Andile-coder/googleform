@@ -5,3 +5,8 @@
     height: 10px;
   }
 }
+@media only screen and (max-device-width: 480px) {
+  .tabs {
+    width: 100%;
+  }
+}

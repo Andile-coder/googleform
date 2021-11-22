@@ -396,6 +396,7 @@ function Title(props) {
               </div>
 
               <div
+                className="form_map"
                 style={{
                   display: elem.display === true ? "flex" : "none",
                 }}
