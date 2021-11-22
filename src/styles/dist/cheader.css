@@ -76,6 +76,7 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    overflow: none;
   }
   .form_header_left {
     -webkit-box-pack: justify;
