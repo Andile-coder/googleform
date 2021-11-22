@@ -108,4 +108,13 @@
   background-color: transparent;
   border-color: transparent;
 }
+
+@media only screen and (max-device-width: 800px) {
+  .theme_container {
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: auto;
+  }
+}
 /*# sourceMappingURL=theme.css.map */

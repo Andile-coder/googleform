@@ -63,3 +63,11 @@
     }
   }
 }
+@media only screen and (max-device-width: 1000px) {
+  .theme_container {
+    top: 0;
+    left: 5%;
+    width: 90%;
+    height: auto;
+  }
+}

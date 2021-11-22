@@ -201,7 +201,7 @@
           align-items: center;
 }
 
-@media only screen and (max-device-width: 560px) {
+@media only screen and (max-device-width: 1000px) {
   .form_container_content-box-1 {
     display: block;
   }
