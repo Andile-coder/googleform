@@ -205,6 +205,9 @@
   .form_container_content-box-1 {
     display: block;
   }
+  .form_container_content-box-1 .box-1-question:focus {
+    width: 100%;
+  }
   .form_container_content-box-1 .box-2-type {
     margin-top: 25px;
   }
