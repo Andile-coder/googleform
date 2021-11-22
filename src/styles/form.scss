@@ -154,8 +154,12 @@
   .form_container_content-box-1 {
     display: block;
     .box-1-question {
-      &:focus {
+      .form_textfield {
+        outline: none;
+        border: none;
+        height: 35px;
         width: 100%;
+        margin-bottom: 2px;
       }
     }
     .box-2-type {

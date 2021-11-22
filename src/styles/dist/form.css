@@ -205,8 +205,12 @@
   .form_container_content-box-1 {
     display: block;
   }
-  .form_container_content-box-1 .box-1-question:focus {
+  .form_container_content-box-1 .box-1-question .form_textfield {
+    outline: none;
+    border: none;
+    height: 35px;
     width: 100%;
+    margin-bottom: 2px;
   }
   .form_container_content-box-1 .box-2-type {
     margin-top: 25px;
