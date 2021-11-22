@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import "./styles/dist/header.css";
 import "./styles/dist/body.css";
 import "./styles/dist/title.css";
@@ -8,10 +7,10 @@ import "./styles/dist/cheader.css";
 import "./styles/dist/pages.css";
 import "./styles/dist/theme.css";
 import CHeader from "./components/CHeader";
-import Body from "./components/Body";
+
 import Pages from "./components/Pages";
 import Title from "./components/Title";
-import Download from "./components/Download";
+
 import React, { useState } from "react";
 function App() {
   const [popup, setPopup] = useState(false);

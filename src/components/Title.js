@@ -19,8 +19,6 @@ import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import TaskIcon from "@mui/icons-material/Task";
 import Theme from "./Theme";
 import { IconButton } from "@mui/material";
-
-import { LightenDarkenColor } from "lighten-darken-color";
 function Title(props) {
   const [forms, addForm] = useState([]);
   // handle form header
@@ -116,7 +114,6 @@ function Title(props) {
     };
   };
   const handleFile = (json) => {
-    console.log(file.length);
     json.forEach((form) => {
       addForm((arr) => [...arr, form]);
       handleDisplay(form.id);
@@ -244,7 +241,6 @@ function Title(props) {
 
   useEffect(() => {
     addForm(forms);
-    console.log(forms);
   }, [forms]);
   return (
     <div>

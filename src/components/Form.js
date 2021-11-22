@@ -73,9 +73,8 @@ function Form(props) {
               label="Question"
               id="filled-basic"
               variant="filled"
-              multiline
-              rowMax={Infinity}
-              style={{ width: "400px" }}
+              rowMax={2}
+              style={{ width: "100%" }}
               onChange={handleQuestionText}
               value={props.form.questionText}
               defaultValue={"question" + props.index}

@@ -16,6 +16,10 @@
           justify-content: space-between;
 }
 
+.form_container_content-box-1 .box-1-question {
+  width: 400px;
+}
+
 .form_container_content-box-1 .box-1-question .form_textfield {
   outline: none;
   border: none;
@@ -209,7 +213,7 @@
     outline: none;
     border: none;
     height: 35px;
-    width: 100%;
+    width: 80%;
     margin-bottom: 2px;
   }
   .form_container_content-box-1 .box-2-type {
