@@ -43,6 +43,13 @@
 @media only screen and (max-device-width: 560px) {
   .form_header {
     width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      width: 50px;
+    }
   }
   span,
   #star,
@@ -51,8 +58,17 @@
   #visibility {
     display: none;
   }
+  &_icon {
+    font-size: small;
+    margin: 0;
+  }
   .form_header_icon {
     width: 100px;
     height: 50px;
+  }
+  &_right {
+    display: flex;
+    align-items: center;
+    justify-content: none;
   }
 }

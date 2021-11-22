@@ -69,6 +69,19 @@
 @media only screen and (max-device-width: 560px) {
   .form_header {
     width: 100%;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .form_header input {
+    width: 50px;
   }
   span,
   #star,
@@ -77,9 +90,24 @@
   #visibility {
     display: none;
   }
+  _icon {
+    font-size: small;
+    margin: 0;
+  }
   .form_header_icon {
     width: 100px;
     height: 50px;
+  }
+  _right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: none;
+        -ms-flex-pack: none;
+            justify-content: none;
   }
 }
 /*# sourceMappingURL=cheader.css.map */

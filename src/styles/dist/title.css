@@ -104,12 +104,5 @@ input {
     position: static;
     padding-left: 0;
   }
-  .form_map {
-    position: relative;
-  }
-  .form_sidebar {
-    top: 10;
-    left: 10;
-  }
 }
 /*# sourceMappingURL=title.css.map */
