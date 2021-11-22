@@ -37,6 +37,7 @@
   &_right {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 }
 @media only screen and (max-device-width: 560px) {
@@ -72,9 +73,10 @@
   .form_header_icon {
     margin: 0;
   }
-  &_right {
+  .form_header_right {
     display: flex;
+    width: 50%;
     align-items: center;
-    justify-content: none;
+    justify-content: center;
   }
 }

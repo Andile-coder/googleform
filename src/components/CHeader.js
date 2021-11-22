@@ -20,7 +20,7 @@ function CHeader(props) {
           className="form_header_icon"
           style={{ height: "55px", width: "50px", color: "#673ab7" }}
         />
-        <input placeholder="Untitled Form"></input>
+        <input placeholder="Untitled Form" />
         <IconButton>
           {" "}
           <AddtoDriveIcon id="drive" className="form_header_icon" />
