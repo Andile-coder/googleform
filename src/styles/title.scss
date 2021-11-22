@@ -82,12 +82,8 @@ input {
     margin-right: 0;
     overflow: none;
     &_section {
-      width: 95%;
+      width: 85%;
       margin: 0;
-      &_title {
-        position: static;
-        padding-left: 0;
-      }
     }
   }
 }

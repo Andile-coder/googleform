@@ -97,12 +97,8 @@ input {
     overflow: none;
   }
   .questions_container_section {
-    width: 95%;
+    width: 85%;
     margin: 0;
-  }
-  .questions_container_section_title {
-    position: static;
-    padding-left: 0;
   }
 }
 /*# sourceMappingURL=title.css.map */
