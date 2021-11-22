@@ -150,3 +150,13 @@
     }
   }
 }
+@media only screen and (max-device-width: 560px) {
+  .form_container_content-box-1 {
+    display: block;
+    .box-1-question {
+    }
+    .box-2-type {
+      margin-top: 25px;
+    }
+  }
+}
