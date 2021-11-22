@@ -1,3 +1,7 @@
+* ::-webkit-scrollbar {
+  width: 0;
+}
+
 .questions_container {
   height: 100%;
   min-height: 100vh;
@@ -90,7 +94,7 @@ input {
   height: 20px;
 }
 
-@media only screen and (max-device-width: 800px), only screen and (max-device-width: 800px) {
+@media only screen and (max-device-width: 1000px), only screen and (max-device-width: 1000px) {
   .questions_container {
     width: 100%;
     margin-right: 0;

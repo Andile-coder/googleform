@@ -56,7 +56,11 @@ function CHeader(props) {
           <MoreVertIcon className="form_header_icon" />
         </IconButton>
         <IconButton>
-          <AccountCircle id="account" className="form_header_icon" />
+          <AccountCircle
+            style={{ marginRight: "10px" }}
+            id="account"
+            className="form_header_icon"
+          />
         </IconButton>
       </div>
     </div>
