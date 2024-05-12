@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import CircleIcon from "@mui/icons-material/Circle";
 import CloseIcon from "@mui/icons-material/Close";
 import PaletteIcon from "@mui/icons-material/Palette";
-import { FormControl, IconButton, Input, InputLabel } from "@mui/material";
+import { IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import { SketchPicker, ChromePicker } from "react-color";
+import { ChromePicker } from "react-color";
 import { v4 as uuidv4 } from "uuid";
-import { LightenDarkenColor } from "lighten-darken-color";
 
 function Theme(props) {
   const [themes, setThemes] = useState(false);
