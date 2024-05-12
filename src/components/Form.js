@@ -14,7 +14,7 @@ import SubjectIcon from "@mui/icons-material/Subject";
 import CloseIcon from "@mui/icons-material/Close";
 import { v4 as uuidv4 } from "uuid";
 function Form(props) {
-  // multiple choice
+  // multiple choice questions
   const handleMcChange = (e) => {
     props.multipleChoice[2](props.id, e.target.value, e.target.id);
   };
